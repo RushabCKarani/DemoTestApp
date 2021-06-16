@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">DemoTestApp</string>
+    <string name="enter_email_id">Enter Email ID</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="login_button">Login</string>
+    <string name="loading">Loading..</string>
+    <string name="app_exit_msg">Exit App?</string>
+    <string name="yes">Ok</string>
+    <string name="no">Stay</string>
+    <string name="show_location">Show Location</string>
+    <string name="logour">Logout</string>
+</resources>
