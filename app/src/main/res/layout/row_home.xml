@@ -20,7 +20,7 @@
             android:background="@color/error_red" />
 
         <ImageView
-            android:id="@+id/ivAvater"
+            android:id="@+id/ivAvatar"
             android:layout_width="fill_parent"
             android:layout_height="280dp"
             android:scaleType="centerCrop" />

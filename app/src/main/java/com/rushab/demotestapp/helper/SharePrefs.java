@@ -42,9 +42,7 @@ public class SharePrefs {
         String value = sharedPreferences.getString(key, "");
 
         return sharedPreferences.getString(key, "");
-
     }
-
 
     public static void savesharePrefBooleanValue(String key, Boolean value) {
         editor = sharedPreferences.edit();

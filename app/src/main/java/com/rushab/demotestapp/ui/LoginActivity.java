@@ -113,10 +113,10 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         password = etPassword.getText().toString().trim();
 
         if (email.equals("")) {
-            tvErrorMessage.setText("Please enter valid Emailid");
+            tvErrorMessage.setText(R.string.error_msg_email);
             value = false;
         } else if (password.equals("")) {
-            tvErrorMessage.setText("Please enter valid Password");
+            tvErrorMessage.setText(R.string.error_msg_password);
             value = false;
         }
 

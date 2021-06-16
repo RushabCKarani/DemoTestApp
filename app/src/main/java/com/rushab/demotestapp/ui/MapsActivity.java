@@ -2,10 +2,14 @@ package com.rushab.demotestapp.ui;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
+import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -34,6 +38,7 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 import com.rushab.demotestapp.R;
+import com.rushab.demotestapp.helper.Constants;
 
 public class MapsActivity extends AppCompatActivity {
 
@@ -52,17 +57,21 @@ public class MapsActivity extends AppCompatActivity {
         client = LocationServices.getFusedLocationProviderClient(this);
 
         locationRequest = LocationRequest.create();
-        locationRequest.setInterval(500);
-        locationRequest.setFastestInterval(500);
+        locationRequest.setInterval(60000);
+        locationRequest.setFastestInterval(5000);
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-
 
         Dexter.withContext(getApplicationContext())
                 .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
                 .withListener(new PermissionListener() {
                     @Override
                     public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
-                        getMyLocation();
+                        if (Constants.isLocationEnabled(MapsActivity.this)) {
+                           startLocationUpdates();
+                        }
+                        else {
+                            Constants.showToast("Please start Location Service", MapsActivity.this);
+                        }
                     }
 
                     @Override
@@ -100,7 +109,13 @@ public class MapsActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        startLocationUpdates();
+        if (Constants.isLocationEnabled(MapsActivity.this)) {
+           getMyLocation();
+            Log.d(TAG, "onStart: ON");
+        }
+        else {
+            Constants.showToast("Please start Location Service", MapsActivity.this);
+        }
     }
 
     private void getMyLocation() {
@@ -135,4 +150,6 @@ public class MapsActivity extends AppCompatActivity {
         //stop location updates
         client.removeLocationUpdates(locationCallback);
     }
+
+
 }

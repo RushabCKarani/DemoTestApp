@@ -9,4 +9,6 @@
     <string name="no">Stay</string>
     <string name="show_location">Show Location</string>
     <string name="logour">Logout</string>
+    <string name="error_msg_email">Please enter valid Emailid</string>
+    <string name="error_msg_password">Please enter valid Password</string>
 </resources>

@@ -55,7 +55,7 @@ public class UserAdpater extends RecyclerView.Adapter<UserAdpater.UserAdpaterVie
                 .load(user.getAvatar())
                 .placeholder(R.drawable.ic_launcher_background)
                 .error(R.drawable.ic_launcher_background)
-                .into(holder.ivAvater);
+                .into(holder.ivAvatar);
     }
 
 
@@ -68,7 +68,7 @@ public class UserAdpater extends RecyclerView.Adapter<UserAdpater.UserAdpaterVie
 
         private TextView tvName, tvEmail;
         CardView cvMain;
-        ImageView ivAvater;
+        ImageView ivAvatar;
 
         public UserAdpaterViewHolder(View itemView) {
             super(itemView);
@@ -76,7 +76,7 @@ public class UserAdpater extends RecyclerView.Adapter<UserAdpater.UserAdpaterVie
             tvEmail = itemView.findViewById(R.id.tvEmail);
             tvName = itemView.findViewById(R.id.tvName);
             cvMain = itemView.findViewById(R.id.cvMain);
-            ivAvater = itemView.findViewById(R.id.ivAvater);
+            ivAvatar = itemView.findViewById(R.id.ivAvatar);
         }
     }
 
